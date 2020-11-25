@@ -45,15 +45,23 @@ function checkWork(){
     quickTitle.addClass('subtitle');
     bioDiv.append(quickTitle);
     $("#mainHero").append(bioDiv);
+    var imgLink = $('<a>');
     var imgDiv = $('<figure>');
-    imgDiv.addClass('image is-16by9');
+    imgDiv.addClass('image is-3by4');
     var img = $('<img>');
     var imgPath = "./assets/img/";
-    var images =["Unity_Game.JPG", "buscaCovid.jpg"];
-    var completePath = imgPath+images[Math.random()];
+    var images ={   paths:["Unity_Game.JPG", "buscaCovid.jpg", "simpleSchedule.jpg"],
+                    urls:["https://ibmug.github.io/juegoma_dev/", "https://ibmug.github.io/proyecto_1/", "https://ibmug.github.io/simpleDaySchedule/"]};
+                
+    var rand =Math.floor(Math.random() * 3);
+    var completePath = imgPath+images.paths[rand];
+    imgLink.attr('href',images.urls[rand]);
+    console.log(rand);
     img.attr('src',completePath);
+    imgLink.attr('target','_blank');
     imgDiv.append(img)
-    bioDiv.append(imgDiv);
+    imgLink.append(imgDiv);
+    bioDiv.append(imgLink);
 }
 function clickMedia(){
 
