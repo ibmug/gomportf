@@ -18,10 +18,18 @@
 
     });
 
+    $("#mediaLink").click(function() {
+        //Do stuff when clicked
+       clearHero();
+       clickMedia();
+
+    });
+
    
 
 
 function init(){
+
     const bioDiv = $('<div>');
     bioDiv.addClass('container has-text-centered');
     const quickTitle = $('<h1>');
@@ -64,6 +72,34 @@ function checkWork(){
     bioDiv.append(imgLink);
 }
 function clickMedia(){
+
+    const mediaObj = {
+        text: ["Streams ","Music ","Instagram ","Git "],
+        url: ["https://twitch.tv/ibmug", "https://soundcloud.com/ibmug","https://www.instagram.com/ibmug/","https://github.com/ibmug"],
+        class:["fab fa-twitch","fab fa-soundcloud","fab fa-instagram","fab fa-github"]
+    };
+
+//Create
+const mediaDiv = $('<div>');
+mediaDiv.addClass("container rows is-centered");
+//<a class="nav-link" href="https://twitch.tv/ibmug" target="_blank"><i class="fab fa-twitch"></i> Streams</a>
+console.log("ok..." + mediaObj.text.length);
+for(var x=0; x<mediaObj.text.length;x++){
+    console.log("something");
+    let mediaLink = $("<a>");
+    mediaLink.text(mediaObj.text[x]);
+    mediaLink.addClass("row is-full myLink");
+    mediaLink.attr("href", mediaObj.url[x]);
+    mediaLink.attr("target","_blank");
+    const fabIcon = $("<i>");
+    fabIcon.addClass(mediaObj.class[x]);
+    
+
+    mediaLink.append(fabIcon);
+    mediaDiv.append(mediaLink);
+}
+
+$("#mainHero").append(mediaDiv);
 
 }
 

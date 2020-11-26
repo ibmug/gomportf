@@ -1,0 +1,10 @@
+.rows{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.myLink{
+    
+    color:white;
+}
