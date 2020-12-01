@@ -1,3 +1,4 @@
+//const fs = require('fs');
 
     console.log("Hi");
     
@@ -25,6 +26,15 @@
 
     });
 
+    $("#readmeLink").click(function() {
+        //Do stuff when clicked
+        console.log("doing something");
+       clearHero();
+       createREADME();
+
+    });
+
+
    
 
 
@@ -37,7 +47,7 @@ function init(){
     quickTitle.text("Rodrigo Sanchez");
     const quickSubTitle = $('<h2>');
     quickTitle.addClass('subtitle');
-    quickSubTitle.text("FullStack Developer");
+    quickSubTitle.text("FullStack Developer && Tech Analyst");
     bioDiv.append(quickTitle);
     bioDiv.append(quickSubTitle);
     $("#mainHero").append(bioDiv);  
@@ -58,8 +68,8 @@ function checkWork(){
     imgDiv.addClass('image is-3by4');
     var img = $('<img>');
     var imgPath = "./assets/img/";
-    var images ={   paths:["Unity_Game.JPG", "buscaCovid.jpg", "simpleSchedule.jpg"],
-                    urls:["https://ibmug.github.io/juegoma_dev/", "https://ibmug.github.io/proyecto_1/", "https://ibmug.github.io/simpleDaySchedule/"]};
+    var images ={   paths:["Unity_Game.JPG", "buscaCovid.jpg", "simpleSchedule.JPG"],
+                    urls:["https://ibmug.github.io/juegoma_dev/", "https://ibmug.github.io/proyecto_1/", "https://ibmug.github.io/simpleDaySchedule/",]};
                 
     var rand =Math.floor(Math.random() * 3);
     var completePath = imgPath+images.paths[rand];
@@ -74,9 +84,9 @@ function checkWork(){
 function clickMedia(){
 
     const mediaObj = {
-        text: ["Streams ","Music ","Instagram ","Git "],
-        url: ["https://twitch.tv/ibmug", "https://soundcloud.com/ibmug","https://www.instagram.com/ibmug/","https://github.com/ibmug"],
-        class:["fab fa-twitch","fab fa-soundcloud","fab fa-instagram","fab fa-github"]
+        text: ["Streams ","Music ","Instagram ","Git ","LinkedIn "],
+        url: ["https://twitch.tv/ibmug", "https://soundcloud.com/ibmug","https://www.instagram.com/ibmug/","https://github.com/ibmug","https://linkedin.com/in/rodrigosv8"],
+        class:["fab fa-twitch","fab fa-soundcloud","fab fa-instagram","fab fa-github","fab fa-linkedin"]
     };
 
 //Create
@@ -107,4 +117,37 @@ function clearHero(){
     $('#mainHero').empty();
 }
 
+
+function createREADME(){
+    const  titleString = "## READ.ME";
+    const titleString2 = "## Guitar Stuff\n\n"
+    const titleString3 = "## Synth/Sample Stuff\n\n"
+    const contentString3 = "I currently own multiple electronic instruments"
+    const contentString31 = "Including: Digitakt, Model:Samples, Digitone, Novation's Circuit, Op-1 && OP-Z"
+   // console.log(veryBigString);
+    var textDiv = $("<div>");
+    
+    createElement("<h1>",titleString,textDiv);
+    createElement("<p>","This website has information on me and stuff I've done/do, hope you like it.",textDiv);
+    createElement("<p>","I'm trying to get the game uploaded but I'm having a hard time to do that with Unity, might go back to Phaser.io or something similar.'",textDiv);
+    createElement("<h1>",titleString2,textDiv);
+    createElement("<p>","I currently own 6 six string guitars and 1 5string bass",textDiv);
+    createElement("<p>","Using a Line6(I know..) and a fender Rumble",textDiv);
+    createElement("<h1>",titleString3,textDiv);
+    createElement("<p>","I currently own multiple electronic instruments" ,textDiv);
+    createElement("<p>","Including: Digitakt, Model:Samples, Digitone, Novation's Circuit, Op-1 && OP-Z",textDiv);
+
+    $("#mainHero").append(textDiv);
+
+}
 init();
+
+
+function createElement(type,text,object){
+    var element = $(type);
+    if(type ==="<h1>"){
+        element.addClass("has-text-centered is-size-6 has-text-weight-bold");
+    }
+    element.text(text);
+    object.append(element);
+}
